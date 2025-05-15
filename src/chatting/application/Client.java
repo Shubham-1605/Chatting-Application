@@ -1,4 +1,5 @@
 
+
 package chatting.application;
 import java.awt.*;
 import javax.swing.*;
@@ -7,12 +8,12 @@ import java.awt.event.*;
 import java.util.*;
 import java.text.*;
 
-public class Server extends JFrame implements ActionListener{
+public class Client extends JFrame implements ActionListener{
     
     JTextField text;
     JPanel a1;
     Box vertical = Box.createVerticalBox();
-    Server(){
+    Client(){
         
         setLayout(null);
         
@@ -35,7 +36,7 @@ public class Server extends JFrame implements ActionListener{
             }
         });
         
-        ImageIcon i4 = new ImageIcon(ClassLoader.getSystemResource("icons/1.png"));
+        ImageIcon i4 = new ImageIcon(ClassLoader.getSystemResource("icons/2.png"));
         Image i5 = i4.getImage().getScaledInstance(50,50,Image.SCALE_DEFAULT);
         ImageIcon i6 = new ImageIcon(i5);
         JLabel profile = new JLabel(i6);
@@ -63,7 +64,7 @@ public class Server extends JFrame implements ActionListener{
         more.setBounds(405,23,10,25);
         p1.add(more);
         
-        JLabel name = new JLabel("Jayesh");
+        JLabel name = new JLabel("Shubham");
         name.setBounds(100,20,100,25);
         name.setForeground(Color.WHITE);
         name.setFont(new Font("SAN SERIEF",Font.BOLD,18));
@@ -147,6 +148,6 @@ public class Server extends JFrame implements ActionListener{
     }
     
     public static void main(String[] args){
-        new Server();
+        new Client();
     }
 }
