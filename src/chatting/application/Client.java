@@ -110,36 +110,34 @@ public class Client implements ActionListener{
     }
     
     public void actionPerformed(ActionEvent ae){
-        try{
+    try{
         String out = text.getText();
-        
-        JLabel output = new JLabel(out);
-        
-        JPanel p2 = formatLabel(out);
-        
-        
-        a1.setLayout(new BorderLayout());
-        
-        
-        JPanel right = new JPanel(new BorderLayout());
-        right.add(p2,BorderLayout.LINE_END);
-        vertical.add(right);
-        vertical.add(Box.createVerticalStrut(15));
-        
-        a1.add(vertical,BorderLayout.PAGE_START);
-        
-        dout.writeUTF(out); 
-        
-        text.setText("");
-        
-        f.repaint();
-        f.invalidate();
-        f.validate();
-        }catch(Exception e){
-            e.printStackTrace();
+
+        if (dout != null) {
+            JPanel p2 = formatLabel(out);
+            a1.setLayout(new BorderLayout());
+
+            JPanel right = new JPanel(new BorderLayout());
+            right.add(p2, BorderLayout.LINE_END);
+            vertical.add(right);
+            vertical.add(Box.createVerticalStrut(15));
+
+            a1.add(vertical, BorderLayout.PAGE_START);
+            dout.writeUTF(out);
+
+            text.setText("");
+
+            f.repaint();
+            f.invalidate();
+            f.validate();
+        } else {
+            JOptionPane.showMessageDialog(f, "Not connected to server!", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        
+    } catch (Exception e){
+        e.printStackTrace();
     }
+}
+
     public static JPanel formatLabel(String out){
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS));
